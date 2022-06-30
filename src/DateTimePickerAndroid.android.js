@@ -22,6 +22,8 @@ import {
 } from './androidUtils';
 import pickers from './picker';
 
+type AndroidMode = $Keys<typeof ANDROID_MODE>;
+
 function open(props: AndroidNativeProps) {
   const {
     mode = ANDROID_MODE.date,
@@ -98,7 +100,7 @@ function open(props: AndroidNativeProps) {
   presentPicker();
 }
 
-function dismiss(mode: AndroidNativeProps['mode']) {
+function dismiss(mode: AndroidMode) {
   // $FlowFixMe - `AbstractComponent` [1] is not an instance type.
   pickers[mode].dismiss();
 }
